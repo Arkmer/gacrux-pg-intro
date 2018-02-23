@@ -4,12 +4,64 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script type="text/javascript" src="vendors/angular.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="styles/bootstrap.min.css">
   <title>Songs</title>
-  <script src="vendors/jquery.js"></script>
   <script src="scripts/client.js"></script>
 </head>
-<body>
-  <h1>All the songs</h1>
-  <div id="out-songs"></div>
-</body>
+  <body>
+    <main ng-app="songsApp" ng-controller="songsAppController as vm">
+      <section class="container">
+        <h1>Songs!</h1>
+        <h2>Add a song</h2>
+        <form class="col-md-12">
+          <div class="form-group col-md-6">
+            <label for="trackName">Track Name</label>
+            <input type="text" name="trackName" class="form-control" ng-model="vm.newSong.trackName" placeholder="Track Name"/>
+          </div>
+          <div class="form-group col-md-6">
+            <label for="artistName">Artist Name</label>
+            <input type="text" name="artistName" class="form-control" ng-model="vm.newSong.artistName" placeholder="Artist Name"/>
+          </div>
+          <div class="form-group col-md-6">
+            <label for="date">Release Date</label>
+            <input type="date" name="date" class="form-control" ng-model="vm.newSong.date" placeholder="Release Date"/>
+          </div>
+          <div class="form-group col-md-6">
+            <label for="ranking">Ranking</label>
+            <input type="text" name="ranking" class="form-control" ng-model="vm.newSong.ranking" placeholder="Ranking"/>
+          </div>
+          <div class="col-md-2">
+            <button class="btn btn-primary" ng-click="vm.createNewSong(vm.newSong)">Add</button>
+          </div>
+        </form>
+      </section>
+      <section>
+      </section>
+      <section class="container">
+        <h3>All the songs</h3>
+          <!-- <label class="form-group">Search: <input ng-model="searchText"></label> -->
+          <div class="table-responsive">
+            <table>
+              <thead>
+                <tr>
+                  <th>Track</th>
+                  <th>Artist</th>
+                  <th>Published</th>
+                  <th>Rank</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="table-hover" ng-repeat="newSong in vm.playlist">
+                  <td>{{newSong.trackName}}</td>
+                  <td>{{newSong.artistName}}</td>
+                  <td>{{newSong.date}}</td>
+                  <td>{{newSong.ranking}}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+    </main>
+  </body>
 </html>
