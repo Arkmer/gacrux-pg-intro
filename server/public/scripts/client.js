@@ -8,14 +8,29 @@ app.controller('songsAppController', ['$http', function($http){
   self.newSong = {};
   self.createNewSong = function(newSong){
     console.log('createNewSong', newSong);
-    self.playlist.push(angular.copy(self.newSong));
-    console.log('playlist', self.playlist);
+    // self.playlist.push(angular.copy(self.newSong));
+    // console.log('playlist', self.playlist);
     $http({
       method: 'POST',
       url: '/songs/add',
       data: newSong
-    }).then( function(response){
+    }).then(function(response){
       console.log('POST response:', response);
+      self.getAllSongs();
+    }).catch(function(error){
+      console.log(error);
+    });
+  }
+
+  self.getAllSongs = function(){
+    $http({
+      method: 'GET',
+      url: '/songs'
+    }).then(function(response){
+      console.log('GET response:', response);
+      self.playlist = {};
+      self.playlist = response.data;
+      console.log('playlist', self.playlist);
     }).catch(function(error){
       console.log(error);
     });
