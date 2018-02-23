@@ -17,19 +17,19 @@
         <form class="col-md-12">
           <div class="form-group col-md-6">
             <label for="trackName">Track Name</label>
-            <input type="text" name="trackName" class="form-control" ng-model="vm.newSong.trackName" placeholder="Track Name"/>
+            <input type="text" name="trackName" class="form-control" ng-model="vm.newSong.track" placeholder="Track Name"/>
           </div>
           <div class="form-group col-md-6">
             <label for="artistName">Artist Name</label>
-            <input type="text" name="artistName" class="form-control" ng-model="vm.newSong.artistName" placeholder="Artist Name"/>
+            <input type="text" name="artistName" class="form-control" ng-model="vm.newSong.artist" placeholder="Artist Name"/>
           </div>
           <div class="form-group col-md-6">
             <label for="date">Release Date</label>
-            <input type="date" name="date" class="form-control" ng-model="vm.newSong.date" placeholder="Release Date"/>
+            <input type="date" name="date" class="form-control" ng-model="vm.newSong.published" placeholder="Release Date"/>
           </div>
           <div class="form-group col-md-6">
             <label for="ranking">Ranking</label>
-            <input type="text" name="ranking" class="form-control" ng-model="vm.newSong.ranking" placeholder="Ranking"/>
+            <input type="text" name="ranking" class="form-control" ng-model="vm.newSong.rank" placeholder="Ranking"/>
           </div>
           <div class="col-md-2">
             <button class="btn btn-primary" ng-click="vm.createNewSong(vm.newSong)">Add</button>
@@ -53,10 +53,10 @@
               </thead>
               <tbody>
                 <tr class="table-hover" ng-repeat="newSong in vm.playlist">
-                  <td>{{newSong.trackName}}</td>
-                  <td>{{newSong.artistName}}</td>
-                  <td>{{newSong.date}}</td>
-                  <td>{{newSong.ranking}}</td>
+                  <td>{{newSong.track}}</td>
+                  <td>{{newSong.artist}}</td>
+                  <td>{{newSong.published}}</td>
+                  <td>{{newSong.rank}}</td>
                 </tr>
               </tbody>
             </table>

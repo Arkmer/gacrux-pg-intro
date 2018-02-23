@@ -10,6 +10,5 @@ CREATE TABLE songs (
 INSERT INTO songs (artist, track, published, rank)
 VALUES ('Billy Joel', 'We Didn''t Start the Fire', '1/1/1989', 35);
 
-
 INSERT INTO songs (artist, track, published, rank)
 VALUES ('Toto', 'Africa', '10/30/1982', 42);

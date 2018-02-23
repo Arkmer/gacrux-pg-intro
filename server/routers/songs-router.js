@@ -70,7 +70,6 @@ router.put('/:id', (request, response) => {
 router.post('/add', (request, response) => {
   const song = request.body;
   console.log('Add song:', song);
-
   const sqlText = `INSERT INTO songs 
       (artist, track, published, rank)
       VALUES ($1, $2, $3, $4)`;

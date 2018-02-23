@@ -1,6 +1,6 @@
 const app = angular.module('songsApp', []);
 
-app.controller('songsAppController', function(){
+app.controller('songsAppController', ['$http', function($http){
   console.log('songsAppController loaded');
   let self = this;
   
@@ -10,8 +10,17 @@ app.controller('songsAppController', function(){
     console.log('createNewSong', newSong);
     self.playlist.push(angular.copy(self.newSong));
     console.log('playlist', self.playlist);
+    $http({
+      method: 'POST',
+      url: '/songs/add',
+      data: newSong
+    }).then( function(response){
+      console.log('POST response:', response);
+    }).catch(function(error){
+      console.log(error);
+    });
   }
-})
+}])
 
 // $(document).ready(onReady);
 
